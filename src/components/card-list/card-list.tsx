@@ -1,15 +1,14 @@
 import { useMemo } from "react";
 
-import { useQuery } from "@/hooks/useQuery";
+import { useUsers } from "@/hooks/useUsers";
 import { TUser } from "@/types/api/user";
-import { fetchUsers } from "@/utils/api/users/users";
 
 import { Card } from "../card/card";
 
 type TCardListProps = { search: string };
 
 export const CardList = ({ search }: TCardListProps) => {
-  const users = useQuery("users", fetchUsers);
+  const users = useUsers();
 
   const filteredUsers = useMemo(() => {
     return users?.filter((user) =>

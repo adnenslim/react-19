@@ -43,7 +43,8 @@ export default tseslint.config(
       "react/button-has-type": "error",
       "react/react-in-jsx-scope": ["off"],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      // 🚀 Ajout du tri des imports
+      ...react.configs.recommended.rules,
+      ...react.configs["jsx-runtime"].rules,
       "sort-imports": [
         "error",
         {

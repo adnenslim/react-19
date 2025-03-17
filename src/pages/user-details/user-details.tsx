@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useQuery } from "@/hooks/useQuery";
-
-import { fetchUsers } from "../../utils/api/users/users";
+import { useUsers } from "@/hooks/useUsers";
 
 export const UserDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const users = useQuery("users", fetchUsers);
+  const users = useUsers();
   const user = users?.find((user) => user.id === parseInt(id || "", 10));
 
   const navigate = useNavigate();
